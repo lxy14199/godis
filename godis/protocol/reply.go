@@ -1,4 +1,4 @@
-package protocl
+package protocol
 
 import (
 	"bytes"
@@ -65,11 +65,17 @@ func (r *MultiRawReply) ToBytes() []byte {
 	return buf.Bytes()
 }
 
-type StatuReply struct {
+type StatusReply struct {
 	Status string
 }
 
-func (r *StatuReply) ToBytes() []byte {
+func MakeStatusReply(status string) *StatusReply {
+	return &StatusReply{
+		Status: status,
+	}
+}
+
+func (r *StatusReply) ToBytes() []byte {
 	return []byte("+" + r.Status + CRLF)
 }
 

@@ -1,4 +1,4 @@
-package protocl
+package protocol
 
 type UnknownErrReply struct{}
 
